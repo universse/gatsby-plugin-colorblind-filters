@@ -1,0 +1,36 @@
+{
+  "name": "gatsby-plugin-colorblind-filters",
+  "author": "Phuoc <phuoc317049@gmail.com>",
+  "version": "0.0.1",
+  "description": "Color blindness simulation for Gatsby sites",
+  "license": "MIT",
+  "homepage": "https://github.com/universse/gatsby-plugin-colorblind-filters",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/universse/gatsby-plugin-colorblind-filters"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "now",
+    "zeit now"
+  ],
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "babel-preset-gatsby-package": "^0.2.4",
+    "cross-env": "^6.0.0"
+  },
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+  },
+  "bugs": {
+    "url": "https://github.com/universse/gatsby-plugin-colorblind-filters/issues"
+  },
+  "main": "index.js"
+}
