@@ -16,6 +16,5 @@ const types = {
 
 module.exports = {
   controlId: 'color-blind-filters-control',
-  svg: 'colorblind-filters.svg',
   types
 }

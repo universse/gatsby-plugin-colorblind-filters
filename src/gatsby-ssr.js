@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { controlId, svg, types } from './constants'
+import { controlId } from './constants'
 
 export const onRenderBody = (
   { setPostBodyComponents },
@@ -18,19 +18,6 @@ export const onRenderBody = (
         top: 8,
         right: 8,
         zIndex
-      }}
-    />,
-    <style
-      key='colorblind-filters-style'
-      dangerouslySetInnerHTML={{
-        __html: `
-          ${Object.keys(types)
-            .map(
-              type =>
-                `html.${type}{-webkit-filter:url('/${svg}#${type}');filter:url('/${svg}#${type}');}`
-            )
-            .join('')}
-        `
       }}
     />
   ])

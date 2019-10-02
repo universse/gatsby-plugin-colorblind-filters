@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { createPortal } from 'react-dom'
 
 import { controlId, types } from './constants'
+import './style.css'
 
 const filterTypes = Object.keys(types)
 
@@ -45,6 +47,10 @@ function Filter ({ toggleKey }) {
       document.getElementById(controlId)
     )
   )
+}
+
+Filter.propTypes = {
+  toggleKey: PropTypes.string.isRequired
 }
 
 export const wrapPageElement = ({ element }, { toggleKey = 'p' } = {}) => (
