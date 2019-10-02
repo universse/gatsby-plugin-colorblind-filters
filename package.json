@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-colorblind-filters",
   "author": "Phuoc <phuoc317049@gmail.com>",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Color blindness simulation for Gatsby sites",
   "license": "MIT",
   "homepage": "https://github.com/universse/gatsby-plugin-colorblind-filters",
@@ -25,9 +25,8 @@
     "cross-env": "^6.0.0"
   },
   "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+    "build": "node src/write-assets && babel \"src/!(write-assets).js\" --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build"
   },
   "bugs": {
     "url": "https://github.com/universse/gatsby-plugin-colorblind-filters/issues"
