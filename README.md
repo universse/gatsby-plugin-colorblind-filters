@@ -35,9 +35,9 @@ plugins: [
     : []
   )
 ]
+```
 
 To activate different color-blindness mode, press `0/1/2/3/4/5/6/7/8` while holding `p`  in development. Works best in Chrome.
-```
 
 ## Inspirations
 
