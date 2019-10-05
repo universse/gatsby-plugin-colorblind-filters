@@ -17,3 +17,5 @@ yarn-error.log*
 !index.js
 !.babelrc.js
 yarn.lock
+style.css
+colorblind-filters.svg

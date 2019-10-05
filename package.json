@@ -22,7 +22,7 @@
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
     "babel-preset-gatsby-package": "^0.2.4",
-    "cross-env": "^6.0.0"
+    "cross-env": "^6.0.3"
   },
   "scripts": {
     "build": "node src/write-assets && babel \"src/!(write-assets).js\" --out-dir . --ignore **/__tests__",
