@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-colorblind-filters",
   "author": "Phuoc <phuoc317049@gmail.com>",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Color blindness simulation for Gatsby sites",
   "license": "MIT",
   "homepage": "https://github.com/universse/gatsby-plugin-colorblind-filters",
@@ -17,13 +17,19 @@
     "colorblind"
   ],
   "peerDependencies": {
-    "gatsby": "^2.0.0"
+    "gatsby": "^2.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
     "babel-preset-gatsby-package": "^0.2.4",
-    "cross-env": "^6.0.3"
+    "cross-env": "^6.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "scripts": {
     "build": "node src/write-assets && babel \"src/!(write-assets).js\" --out-dir . --ignore **/__tests__",
