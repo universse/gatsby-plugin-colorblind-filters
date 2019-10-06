@@ -1,7 +1,7 @@
 const { writeFileSync } = require('fs')
 const { join } = require('path')
 
-const { types } = require('./constants')
+const { dataAttribute, types } = require('./constants')
 
 const svg = 'colorblind-filters.svg'
 
@@ -22,7 +22,7 @@ writeFileSync(
   Object.keys(types)
     .map(
       type =>
-        `html.${type}{-webkit-filter:url('./${svg}#${type}');filter:url('./${svg}#${type}');}`
+        `html[${dataAttribute}='${type}']{-webkit-filter:url('./${svg}#${type}');filter:url('./${svg}#${type}');}`
     )
     .join('')
 )

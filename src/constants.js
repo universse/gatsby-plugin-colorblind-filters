@@ -1,5 +1,5 @@
 const types = {
-  none: '1,0,0,0,0 0,1,0,0,0 0,0,1,0,0 0,0,0,1,0',
+  // none: '1,0,0,0,0 0,1,0,0,0 0,0,1,0,0 0,0,0,1,0',
   protanopia: '0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0',
   protanomaly:
     '0.817,0.183,0,0,0 0.333,0.667,0,0,0 0,0.125,0.875,0,0 0,0,0,1,0',
@@ -16,5 +16,6 @@ const types = {
 
 module.exports = {
   controlId: 'color-blind-filters-control',
+  dataAttribute: 'data-filter',
   types
 }
