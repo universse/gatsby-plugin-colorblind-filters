@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-colorblind-filters",
   "author": "Phuoc <phuoc317049@gmail.com>",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Color blindness simulation for Gatsby sites",
   "license": "MIT",
   "homepage": "https://github.com/universse/gatsby-plugin-colorblind-filters",
