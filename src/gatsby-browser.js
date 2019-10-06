@@ -6,7 +6,7 @@ import { controlId, dataAttribute, types } from './constants'
 import './style.css'
 
 const filterTypes = Object.keys(types)
-filterTypes.unshift('')
+filterTypes.unshift('none')
 
 function Filter ({ toggleKey }) {
   const [filter, setFilter] = useState(filterTypes[0])
