@@ -23,7 +23,7 @@ export const onRenderBody = (
   ]
 
   process.env.NODE_ENV === 'production' &&
-    postBodyComponents(
+    postBodyComponents.push(
       <style
         key='colorblind-filters'
         dangerouslySetInnerHTML={{ __html: writeStyle(true) }}
