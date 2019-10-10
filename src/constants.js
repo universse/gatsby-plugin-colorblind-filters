@@ -28,9 +28,9 @@ const svgFile = 'colorblind-filters.svg'
 const writeStyle = (isProduction = false) => {
   return Object.keys(types)
     .map(type => {
-      const filterPath = isProduction
-        ? `/static/${svgFile}#${type}`
-        : `./${svg}#${type}`
+      const svgPath = `${svgFile}#${type}`
+
+      const filterPath = isProduction ? `/static/${svgPath}` : `./${svgPath}`
 
       return `html[${dataAttribute}='${type}']{-webkit-filter:url('${filterPath}');filter:url('${filterPath}');}`
     })
