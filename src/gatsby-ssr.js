@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { controlId } from './constants'
+import { controlId, writeStyle } from './constants'
 
 export const onRenderBody = (
   { setPostBodyComponents },
   { zIndex = 999 } = {}
 ) => {
-  setPostBodyComponents([
+  const postBodyComponents = [
     <div
       key={controlId}
       id={controlId}
@@ -20,5 +20,15 @@ export const onRenderBody = (
         zIndex
       }}
     />
-  ])
+  ]
+
+  process.env.NODE_ENV === 'production' &&
+    postBodyComponents(
+      <style
+        key='colorblind-filters'
+        dangerouslySetInnerHTML={{ __html: writeStyle(true) }}
+      />
+    )
+
+  setPostBodyComponents(postBodyComponents)
 }
