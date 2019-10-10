@@ -1,6 +1,6 @@
 # gatsby-plugin-colorblind-filters
 
-Color blindness simulation for Gatsby sites.
+Color blindness simulation for Gatsby sites ([Demo](https://gatsby-colorblind-filters-demo.netlify.com/)).
 
 ## Install
 
@@ -32,12 +32,11 @@ plugins: [
           }
         }
       ]
-    : []
-  )
+    : [])
 ]
 ```
 
-To activate different color-blindness mode, press `0/1/2/3/4/5/6/7/8` while holding `p`  in development. Works best in Chrome.
+To activate different color-blindness mode, hold `toggleKey` (default `p`) and press `0/1/2/3/4/5/6/7/8` in development. Works best in Chrome.
 
 ## Inspirations
 
