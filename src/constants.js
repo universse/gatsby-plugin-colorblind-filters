@@ -14,36 +14,13 @@ const types = {
     '0.618,0.320,0.062,0,0 0.163,0.775,0.062,0,0 0.163,0.320,0.516,0,0 0,0,0,1,0'
 }
 
-const filters = Object.entries(types)
-  .map(
-    ([type, values]) =>
-      `<filter id='${type}'><feColorMatrix in='SourceGraphic' type='matrix' values='${values}' /></filter>`
-  )
-  .join('')
-
 const dataAttribute = 'data-filter'
 
 const svgFile = 'colorblind-filters.svg'
 
-const writeStyle = (isProduction = false) => {
-  return Object.keys(types)
-    .map(type => {
-      const svgPath = `${svgFile}#${type}`
-
-      const filterPath = isProduction ? `/static/${svgPath}` : `./${svgPath}`
-
-      return `html[${dataAttribute}='${type}']{-webkit-filter:url('${filterPath}');filter:url('${filterPath}');}`
-    })
-    .join('')
-}
-
-const svg = `<svg xmlns='http://www.w3.org/2000/svg'><defs>${filters}</defs></svg>`
-
 module.exports = {
-  controlId: 'color-blind-filters-control',
+  controlId: 'colorblind-filters-control',
   dataAttribute,
-  writeStyle,
-  svg,
   svgFile,
   types
 }

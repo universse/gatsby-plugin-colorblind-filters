@@ -1,12 +1,27 @@
 import React from 'react'
 
-import { controlId, writeStyle } from './constants'
+import { controlId, dataAttribute, svgFile, types } from './constants'
 
 export const onRenderBody = (
-  { setPostBodyComponents },
+  { setHeadComponents, setPostBodyComponents },
   { zIndex = 999 } = {}
 ) => {
-  const postBodyComponents = [
+  const style = Object.keys(types)
+    .map(type => {
+      const filterPath = `/static/${svgFile}#${type}`
+      return `html[${dataAttribute}='${type}']{-webkit-filter:url('${filterPath}');filter:url('${filterPath}');}`
+    })
+    .join('')
+
+  setHeadComponents(
+    <link
+      key='colorblind-filters-prefetch'
+      href={`/static/${svgFile}`}
+      rel='prefetch'
+    />
+  )
+
+  setPostBodyComponents([
     <div
       key={controlId}
       id={controlId}
@@ -19,16 +34,12 @@ export const onRenderBody = (
         right: 8,
         zIndex
       }}
+    />,
+    <style
+      key='colorblind-filters-style'
+      dangerouslySetInnerHTML={{ __html: style }}
     />
-  ]
+  ])
 
-  process.env.NODE_ENV === 'production' &&
-    postBodyComponents.push(
-      <style
-        key='colorblind-filters'
-        dangerouslySetInnerHTML={{ __html: writeStyle(true) }}
-      />
-    )
-
-  setPostBodyComponents(postBodyComponents)
+  // add option, add prefetch
 }

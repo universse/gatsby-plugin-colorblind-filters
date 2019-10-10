@@ -1,10 +1,19 @@
 const fs = require('fs')
 const path = require('path')
 
-const { svg, svgFile } = require('./constants')
+const { svgFile, types } = require('./constants')
 
-exports.onPostBuild = ({ store }) => {
+exports.onPostBootstrap = ({ store }) => {
   const { directory } = store.getState().program
+
+  const filters = Object.entries(types)
+    .map(
+      ([type, values]) =>
+        `<filter id='${type}'><feColorMatrix in='SourceGraphic' type='matrix' values='${values}' /></filter>`
+    )
+    .join('')
+
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg'><defs>${filters}</defs></svg>`
 
   fs.writeFileSync(path.join(directory, 'public', 'static', svgFile), svg)
 }

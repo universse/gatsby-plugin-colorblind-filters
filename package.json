@@ -29,7 +29,7 @@
     "cross-env": "^6.0.3"
   },
   "scripts": {
-    "build": "node src/write-assets && babel \"src/!(write-assets).js\" --out-dir . --ignore **/__tests__",
+    "build": "babel src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build"
   },
   "bugs": {

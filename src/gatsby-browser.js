@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { createPortal } from 'react-dom'
 
 import { controlId, dataAttribute, types } from './constants'
-import './style.css'
 
 const filterTypes = Object.keys(types)
 filterTypes.unshift('none')
