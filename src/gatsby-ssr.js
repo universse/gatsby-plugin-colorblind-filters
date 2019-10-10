@@ -3,7 +3,7 @@ import React from 'react'
 import { controlId, dataAttribute, svgFile, types } from './constants'
 
 export const onRenderBody = (
-  { setHeadComponents, setPostBodyComponents },
+  { setPostBodyComponents },
   { zIndex = 999 } = {}
 ) => {
   const style = Object.keys(types)
@@ -12,14 +12,6 @@ export const onRenderBody = (
       return `html[${dataAttribute}='${type}']{-webkit-filter:url('${filterPath}');filter:url('${filterPath}');}`
     })
     .join('')
-
-  setHeadComponents(
-    <link
-      key='colorblind-filters-prefetch'
-      href={`/static/${svgFile}`}
-      rel='prefetch'
-    />
-  )
 
   setPostBodyComponents([
     <div
