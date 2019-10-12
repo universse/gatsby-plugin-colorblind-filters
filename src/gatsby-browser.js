@@ -18,7 +18,7 @@ const types = {
     '0.618,0.320,0.062,0,0 0.163,0.775,0.062,0,0 0.163,0.320,0.516,0,0 0,0,0,1,0'
 }
 
-export const createColorblindFilters = () => {
+const createColorblindFilters = () => {
   const svgNode = document.createElement('div')
   svgNode.style.height = 0
 
