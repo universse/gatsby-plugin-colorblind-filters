@@ -18,44 +18,35 @@ const types = {
     '0.618,0.320,0.062,0,0 0.163,0.775,0.062,0,0 0.163,0.320,0.516,0,0 0,0,0,1,0'
 }
 
-function ColorblindFilters () {
-  const [isMounted, setIsMounted] = useState(false)
-  const svgNode = useRef()
+export const createColorblindFilters = () => {
+  const svgNode = document.createElement('div')
+  svgNode.style.height = 0
 
-  useEffect(() => {
-    svgNode.current = document.createElement('div')
-    svgNode.current.style.height = 0
-    document.body.appendChild(svgNode.current)
-    setIsMounted(true)
-  }, [])
-
-  useEffect(() => {
-    const styleNode = document.createElement('style')
-
-    const style = Object.keys(types)
-      .map(type => {
-        const filterPath = `#${type}`
-        return `html[${dataAttribute}='${type}']{-webkit-filter:url('${filterPath}');filter:url('${filterPath}');}`
-      })
-      .join('')
-
-    styleNode.appendChild(document.createTextNode(style))
-    document.body.appendChild(styleNode)
-  }, [])
-
-  return (
-    isMounted &&
-    createPortal(
-      <svg height='0' width='0' xmlns='http://www.w3.org/2000/svg'>
-        {Object.entries(types).map(([type, values]) => (
-          <filter key={type} id={type}>
-            <feColorMatrix in='SourceGraphic' type='matrix' values={values} />
-          </filter>
-        ))}
-      </svg>,
-      svgNode.current
+  const filters = Object.entries(types)
+    .map(
+      ([type, values]) =>
+        `<filter id='${type}'><feColorMatrix in='SourceGraphic' type='matrix' values='${values}' /></filter>`
     )
-  )
+    .join('')
+
+  svgNode.innerHTML = `<svg height='0' width='0' xmlns='http://www.w3.org/2000/svg'>${filters}</svg>`
+  document.body.appendChild(svgNode)
+
+  const styleNode = document.createElement('style')
+
+  const style = Object.keys(types)
+    .map(type => {
+      const filterValue = `url('#${type}')`
+      return `html[${dataAttribute}='${type}']{-webkit-filter:${filterValue};filter:${filterValue};}`
+    })
+    .join('')
+
+  styleNode.innerHTML = style
+  document.body.appendChild(styleNode)
+}
+
+export const onInitialClientRender = () => {
+  createColorblindFilters()
 }
 
 const dataAttribute = 'data-filter'
@@ -134,7 +125,6 @@ export const wrapPageElement = (
 ) => (
   <>
     {element}
-    <ColorblindFilters />
     <Display toggleKey={toggleKey.toLowerCase()} zIndex={zIndex} />
   </>
 )
