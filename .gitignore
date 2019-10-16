@@ -14,6 +14,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /*.js
-!index.js
 !.babelrc.js
 yarn.lock

@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-colorblind-filters",
   "author": "Phuoc <phuoc317049@gmail.com>",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Color blindness simulation for Gatsby sites",
   "license": "MIT",
   "homepage": "https://github.com/universse/gatsby-plugin-colorblind-filters",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@babel/cli": "^7.6.3",
     "@babel/core": "^7.6.3",
-    "babel-preset-gatsby-package": "^0.2.8",
+    "babel-preset-gatsby-package": "^0.2.9",
     "cross-env": "^6.0.3"
   },
   "scripts": {
